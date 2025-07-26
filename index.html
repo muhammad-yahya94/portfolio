@@ -1,838 +1,732 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Muhammad Yahya - Full Stack Developer</title>
-    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#00d4ff",
-              secondary: "#39ff14",
-            },
-            borderRadius: {
-              none: "0px",
-              sm: "4px",
-              DEFAULT: "8px",
-              md: "12px",
-              lg: "16px",
-              xl: "20px",
-              "2xl": "24px",
-              "3xl": "32px",
-              full: "9999px",
-              button: "8px",
-            },
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Yahya - Full Stack Developer</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#00d4ff",
+            secondary: "#39ff14",
+          },
+          borderRadius: {
+            none: "0px",
+            sm: "4px",
+            DEFAULT: "8px",
+            md: "12px",
+            lg: "16px",
+            xl: "20px",
+            "2xl": "24px",
+            "3xl": "32px",
+            full: "9999px",
+            button: "8px",
           },
         },
-      };
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
-    />
-    <style>
-      :where([class^="ri-"])::before {
-        content: "\f3c2";
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+  <style>
+    :where([class^="ri-"])::before {
+      content: "\f3c2";
+    }
+
+    * {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: #0a0a0a;
+      overflow-x: hidden;
+    }
+
+    .orbitron {
+      font-family: "Orbitron", monospace;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .neon-glow {
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    }
+
+    .text-glow {
+      text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
       }
-      * {
-        scroll-behavior: smooth;
+
+      50% {
+        transform: translateY(-20px);
       }
-      body {
-        font-family: "Montserrat", sans-serif;
-        background: #0a0a0a;
-        overflow-x: hidden;
-      }
-      .orbitron {
-        font-family: "Orbitron", monospace;
-      }
-      .glass {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-      }
-      .neon-glow {
-        box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
-      }
-      .text-glow {
-        text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
-      }
-      .floating {
-        animation: float 6s ease-in-out infinite;
-      }
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-      }
-      .particle {
-        position: absolute;
-        background: radial-gradient(
-          circle,
+    }
+
+    .particle {
+      position: absolute;
+      background: radial-gradient(circle,
           rgba(0, 212, 255, 0.8) 0%,
-          transparent 70%
-        );
-        border-radius: 50%;
-        animation: particle-float 8s infinite linear;
+          transparent 70%);
+      border-radius: 50%;
+      animation: particle-float 8s infinite linear;
+    }
+
+    @keyframes particle-float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
       }
-      @keyframes particle-float {
-        0% {
-          transform: translateY(100vh) rotate(0deg);
-          opacity: 0;
-        }
-        10% {
-          opacity: 1;
-        }
-        90% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(-100px) rotate(360deg);
-          opacity: 0;
-        }
+
+      10% {
+        opacity: 1;
       }
-      .typewriter {
-        overflow: hidden;
-        border-right: 3px solid rgba(0, 212, 255, 0.75);
-        white-space: nowrap;
-        animation: typing 3.5s steps(40, end),
-          blink-caret 0.75s step-end infinite;
+
+      90% {
+        opacity: 1;
       }
-      @keyframes typing {
-        from {
-          width: 0;
-        }
-        to {
-          width: 100%;
-        }
+
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
       }
-      @keyframes blink-caret {
-        from,
-        to {
-          border-color: transparent;
-        }
-        50% {
-          border-color: rgba(0, 212, 255, 0.75);
-        }
+    }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: 3px solid rgba(0, 212, 255, 0.75);
+      white-space: nowrap;
+      animation: typing 3.5s steps(40, end),
+        blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
       }
-      .card-3d {
-        transform-style: preserve-3d;
-        transition: transform 0.6s;
+
+      to {
+        width: 100%;
       }
-      .card-3d:hover {
-        transform: rotateY(10deg) rotateX(10deg);
+    }
+
+    @keyframes blink-caret {
+
+      from,
+      to {
+        border-color: transparent;
       }
-      .wave {
-        position: relative;
-        overflow: hidden;
+
+      50% {
+        border-color: rgba(0, 212, 255, 0.75);
       }
-      .wave::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 200%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
+    }
+
+    .card-3d {
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+
+    .card-3d:hover {
+      transform: rotateY(10deg) rotateX(10deg);
+    }
+
+    .wave {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wave::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(90deg,
           transparent,
           rgba(0, 212, 255, 0.4),
-          transparent
-        );
-        animation: wave-animation 3s infinite;
+          transparent);
+      animation: wave-animation 3s infinite;
+    }
+
+    @keyframes wave-animation {
+      0% {
+        left: -100%;
       }
-      @keyframes wave-animation {
-        0% {
-          left: -100%;
-        }
-        100% {
-          left: 100%;
-        }
+
+      100% {
+        left: 100%;
       }
-      .gradient-text {
-        background: linear-gradient(45deg, #00d4ff, #39ff14, #8b5cf6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+    }
+
+    .gradient-text {
+      background: linear-gradient(45deg, #00d4ff, #39ff14, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .skill-card {
+      transition: all 0.3s ease;
+      transform-style: preserve-3d;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px) rotateX(5deg);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+    }
+
+    .project-card {
+      transition: all 0.4s ease;
+      transform-style: preserve-3d;
+    }
+
+    .project-card:hover {
+      transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+    }
+
+    .contact-input {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .contact-input:focus {
+      border-color: #00d4ff;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+      outline: none;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      animation: blob 7s infinite;
+    }
+
+    @keyframes blob {
+      0% {
+        transform: translate(0px, 0px) scale(1);
       }
-      .skill-card {
-        transition: all 0.3s ease;
-        transform-style: preserve-3d;
+
+      33% {
+        transform: translate(30px, -50px) scale(1.1);
       }
-      .skill-card:hover {
-        transform: translateY(-10px) rotateX(5deg);
-        box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+
+      66% {
+        transform: translate(-20px, 20px) scale(0.9);
       }
-      .project-card {
-        transition: all 0.4s ease;
-        transform-style: preserve-3d;
+
+      100% {
+        transform: translate(0px, 0px) scale(1);
       }
-      .project-card:hover {
-        transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
-      }
-      .contact-input {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(0, 212, 255, 0.3);
-        transition: all 0.3s ease;
-      }
-      .contact-input:focus {
-        border-color: #00d4ff;
-        box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
-        outline: none;
-      }
-      .blob {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(40px);
-        animation: blob 7s infinite;
-      }
-      @keyframes blob {
-        0% {
-          transform: translate(0px, 0px) scale(1);
-        }
-        33% {
-          transform: translate(30px, -50px) scale(1.1);
-        }
-        66% {
-          transform: translate(-20px, 20px) scale(0.9);
-        }
-        100% {
-          transform: translate(0px, 0px) scale(1);
-        }
-      }
-      .reveal {
-        opacity: 0;
-        transform: translateY(50px);
-        transition: all 0.6s ease;
-      }
-      .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    </style>
-  </head>
-  <body class="bg-gray-900 text-white">
-    <div
-      class="particles-container fixed inset-0 pointer-events-none z-0"
-    ></div>
-    <div class="blob w-96 h-96 bg-primary opacity-20 top-10 left-10"></div>
-    <div class="blob w-80 h-80 bg-secondary opacity-15 top-1/2 right-20"></div>
-    <div
-      class="blob w-64 h-64 bg-purple-500 opacity-10 bottom-20 left-1/3"
-    ></div>
-    <nav class="fixed top-0 w-full z-50 glass">
-      <div class="max-w-7xl mx-auto px-6 py-4">
-        <div class="flex items-center justify-between">
-          <div class="orbitron text-2xl font-bold gradient-text">
-            Muhammad Yahya
-          </div>
-          <div class="hidden md:flex items-center space-x-8">
-            <a href="#home" class="hover:text-primary transition-colors"
-              >Home</a
-            >
-            <a href="#skills" class="hover:text-primary transition-colors"
-              >Skills</a
-            >
-            <a href="#projects" class="hover:text-primary transition-colors"
-              >Projects</a
-            >
-            <a href="#contact" class="hover:text-primary transition-colors"
-              >Contact</a
-            >
-            <button
-              class="!rounded-button whitespace-nowrap px-6 py-2 bg-primary text-black font-semibold hover:bg-secondary transition-colors neon-glow"
-            >
-              Download Resume
-            </button>
-          </div>
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+  <div class="particles-container fixed inset-0 pointer-events-none z-0"></div>
+  <div class="blob w-96 h-96 bg-primary opacity-20 top-10 left-10"></div>
+  <div class="blob w-80 h-80 bg-secondary opacity-15 top-1/2 right-20"></div>
+  <div class="blob w-64 h-64 bg-purple-500 opacity-10 bottom-20 left-1/3"></div>
+  <nav class="fixed top-0 w-full z-50 glass">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div class="orbitron text-xl sm:text-2xl md:text-3xl font-bold gradient-text mb-4">
+          Muhammad Yahya
+        </div>
+
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#home" class="hover:text-primary transition-colors">Home</a>
+          <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
+          <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+          <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+          <a href="yahya-cv.pdf" target="_blank" download
+            class="!rounded-button whitespace-nowrap px-8 py-4 bg-primary text-black font-bold text-lg hover:bg-secondary transition-all neon-glow inline-block text-center">
+            Download Resume
+          </a>
         </div>
       </div>
-    </nav>
-    <section
-      id="home"
-      class="min-h-screen flex items-center justify-center relative"
-    >
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-90"
-      ></div>
-      <div
-        class="absolute inset-0"
-        style="
+    </div>
+  </nav>
+  <section id="home" class="min-h-screen flex items-center justify-center relative">
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-90"></div>
+    <div class="absolute inset-0" style="
           background-image: url('https://readdy.ai/api/search-image?query=futuristic%20cyber%20workspace%20with%20floating%20holographic%20screens%2C%20neon%20blue%20and%20green%20lighting%2C%20dark%20background%20with%20glowing%20particles%2C%20modern%20tech%20environment%2C%203D%20rendered%20style%2C%20professional%20developer%20setup%20with%20multiple%20monitors%20and%20coding%20interface&width=1920&height=1080&seq=hero-bg&orientation=landscape');
           background-size: cover;
           background-position: center;
           opacity: 0.3;
-        "
-      ></div>
-      <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
-        <div class="floating mb-8">
-          <div
-            class="w-32 h-32 mx-auto glass rounded-full flex items-center justify-center neon-glow"
-          >
-            <i class="ri-code-s-slash-line text-6xl text-primary"></i>
-          </div>
+        "></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+      <div class="floating mb-8">
+        <div class="w-32 h-32 mx-auto glass rounded-full flex items-center justify-center neon-glow">
+          <i class="ri-code-s-slash-line text-6xl text-primary"></i>
         </div>
-        <h1 class="orbitron text-6xl md:text-8xl font-black mb-6 gradient-text">
-          Muhammad Yahya
-        </h1>
-        <div
-          class="typewriter orbitron text-2xl md:text-3xl text-primary mb-8 inline-block"
-        >
-          Full Stack Developer
-        </div>
-        <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
-          Crafting innovative digital solutions with cutting-edge frontend and
-          backend technologies. Passionate about creating seamless user
-          experiences and robust system architectures.
+      </div>
+      <h1 class="orbitron text-6xl md:text-8xl font-black mb-6 gradient-text">
+        Muhammad Yahya
+      </h1>
+      <div class="typewriter orbitron text-2xl md:text-3xl text-primary mb-8 inline-block">
+        Full Stack Developer
+      </div>
+      <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
+        Crafting innovative digital solutions with cutting-edge frontend and
+        backend technologies. Passionate about creating seamless user
+        experiences and robust system architectures.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="yahya-cv.pdf" target="_blank" download
+          class="!rounded-button whitespace-nowrap px-8 py-4 bg-primary text-black font-bold text-lg hover:bg-secondary transition-all neon-glow inline-block text-center">
+          Download Resume
+        </a>
+
+        <a href="https://wa.me/03459174968" target="_blank"
+          class="!rounded-button whitespace-nowrap px-8 py-4 glass border-2 border-primary text-primary font-bold text-lg hover:bg-primary hover:text-black transition-all inline-flex items-center gap-2">
+          <i class="ri-whatsapp-fill"></i>
+          WhatsApp Me
+        </a>
+      </div>
+    </div>
+  </section>
+  <section id="skills" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="orbitron text-5xl font-black mb-6 gradient-text">
+          Technical Skills
+        </h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+          Mastering modern technologies to build scalable and efficient
+          applications
         </p>
-        <div class="flex flex-col sm:flex-row gap-6 justify-center">
-          <button
-            class="!rounded-button whitespace-nowrap px-8 py-4 bg-primary text-black font-bold text-lg hover:bg-secondary transition-all neon-glow"
-          >
-            View My Work
-          </button>
-          <a
-            href="https://wa.me/03459174968"
-            target="_blank"
-            class="!rounded-button whitespace-nowrap px-8 py-4 glass border-2 border-primary text-primary font-bold text-lg hover:bg-primary hover:text-black transition-all inline-flex items-center gap-2"
-          >
-            <i class="ri-whatsapp-fill"></i>
-            WhatsApp Me
-          </a>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div class="skill-card glass p-6 rounded-xl text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <i class="ri-html5-fill text-4xl text-orange-500"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">HTML5</h3>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style="width: 90%"></div>
+          </div>
+        </div>
+        <div class="skill-card glass p-6 rounded-xl text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <i class="ri-css3-fill text-4xl text-blue-500"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">CSS3</h3>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-blue-500 h-2 rounded-full" style="width: 80%"></div>
+          </div>
+        </div>
+        <div class="skill-card glass p-6 rounded-xl text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <i class="ri-javascript-fill text-4xl text-yellow-500"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">JavaScript</h3>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-yellow-500 h-2 rounded-full" style="width: 75%"></div>
+          </div>
+        </div>
+        <div class="skill-card glass p-6 rounded-xl text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <i class="ri-bootstrap-fill text-4xl text-purple-500"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Bootstrap</h3>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-purple-500 h-2 rounded-full" style="width: 80%"></div>
+          </div>
+        </div>
+        <div class="skill-card glass p-6 rounded-xl text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <i class="ri-code-line text-4xl text-blue-400"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">jQuery</h3>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-blue-400 h-2 rounded-full" style="width: 70%"></div>
+          </div>
+        </div>
+        <div class="skill-card glass p-6 rounded-xl text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <i class="ri-microsoft-fill text-4xl text-blue-600"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">C#</h3>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-blue-600 h-2 rounded-full" style="width: 68%"></div>
+          </div>
+        </div>
+        <div class="skill-card glass p-6 rounded-xl text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <i class="ri-database-2-line text-4xl text-green-500"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">SQL</h3>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-green-500 h-2 rounded-full" style="width: 72%"></div>
+          </div>
+        </div>
+        <div class="skill-card glass p-6 rounded-xl text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <i class="ri-window-line text-4xl text-blue-500"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">ASP.NET MVC</h3>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-blue-500 h-2 rounded-full" style="width: 58%"></div>
+          </div>
+        </div>
+        <div class="skill-card glass p-6 rounded-xl text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <i class="ri-file-code-line text-4xl text-yellow-400"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Python</h3>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-yellow-400 h-2 rounded-full" style="width: 75%"></div>
+          </div>
+        </div>
+        <div class="skill-card glass p-6 rounded-xl text-center reveal">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <i class="ri-server-line text-4xl text-green-600"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Django</h3>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-green-600 h-2 rounded-full" style="width: 78%"></div>
+          </div>
         </div>
       </div>
-    </section>
-    <section id="skills" class="py-20 relative">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16 reveal">
-          <h2 class="orbitron text-5xl font-black mb-6 gradient-text">
-            Technical Skills
-          </h2>
-          <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-            Mastering modern technologies to build scalable and efficient
-            applications
+    </div>
+  </section>
+  <section id="projects" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="orbitron text-5xl font-black mb-6 gradient-text">
+          Featured Projects
+        </h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+          Showcasing innovative solutions and technical expertise through
+          real-world applications
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="project-card glass p-8 rounded-xl reveal">
+          <div class="h-48 rounded-lg mb-6 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=modern%20student%20result%20portal%20interface%20with%20dashboard%2C%20academic%20grades%20display%2C%20clean%20UI%20design%2C%20educational%20technology%2C%20blue%20and%20white%20color%20scheme%2C%20professional%20web%20application&width=600&height=400&seq=project1&orientation=landscape"
+              alt="Student Result Portal" class="w-full h-full object-cover object-top" />
+          </div>
+          <h3 class="orbitron text-2xl font-bold mb-4 text-primary">
+            Student Result Portal
+          </h3>
+          <p class="text-gray-300 mb-6">
+            A comprehensive web application for managing student academic
+            records and results. Features secure authentication, grade
+            management, and detailed reporting systems.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-yellow-500 bg-opacity-20 text-yellow-400 rounded-full text-sm">Python</span>
+            <span class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded-full text-sm">Django</span>
+            <span class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-400 rounded-full text-sm">Bootstrap</span>
+            <span class="px-3 py-1 bg-purple-500 bg-opacity-20 text-purple-400 rounded-full text-sm">JavaScript</span>
+          </div>
+        </div>
+        <div class="project-card glass p-8 rounded-xl reveal">
+          <div class="h-48 rounded-lg mb-6 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=SEO%20ranking%20dashboard%20interface%20with%20analytics%20charts%2C%20keyword%20tracking%2C%20search%20engine%20optimization%20tools%2C%20modern%20web%20application%20design%2C%20dark%20theme%20with%20blue%20accents&width=600&height=400&seq=project2&orientation=landscape"
+              alt="SE Ranking Web App" class="w-full h-full object-cover object-top" />
+          </div>
+          <h3 class="orbitron text-2xl font-bold mb-4 text-primary">
+            SE Ranking Web App
+          </h3>
+          <p class="text-gray-300 mb-6">
+            Advanced SEO analytics platform providing comprehensive keyword
+            tracking, competitor analysis, and search engine ranking
+            monitoring with real-time data visualization.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-yellow-500 bg-opacity-20 text-yellow-400 rounded-full text-sm">Python</span>
+            <span class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded-full text-sm">Django</span>
+            <span class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-400 rounded-full text-sm">REST API</span>
+            <span class="px-3 py-1 bg-purple-500 bg-opacity-20 text-purple-400 rounded-full text-sm">Chart.js</span>
+          </div>
+          <div class="flex gap-4">
+            <button
+              class="!rounded-button whitespace-nowrap px-4 py-2 bg-primary text-black font-semibold hover:bg-secondary transition-colors">
+              Live Demo
+            </button>
+            <button
+              class="!rounded-button whitespace-nowrap px-4 py-2 glass border border-primary text-primary hover:bg-primary hover:text-black transition-colors">
+              View Code
+            </button>
+          </div>
+        </div>
+        <div class="project-card glass p-8 rounded-xl reveal">
+          <div class="h-48 rounded-lg mb-6 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=recipe%20app%20interface%20with%20food%20images%2C%20cooking%20instructions%2C%20ingredient%20lists%2C%20modern%20mobile-first%20design%2C%20colorful%20food%20photography%2C%20clean%20UI%20layout&width=600&height=400&seq=project3&orientation=landscape"
+              alt="Mealin Recipe App" class="w-full h-full object-cover object-top" />
+          </div>
+          <h3 class="orbitron text-2xl font-bold mb-4 text-primary">
+            Mealin Recipe App
+          </h3>
+          <p class="text-gray-300 mb-6">
+            Interactive recipe discovery platform with RESTful API
+            integration. Features recipe search, meal planning, ingredient
+            management, and user favorites system.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 bg-yellow-500 bg-opacity-20 text-yellow-400 rounded-full text-sm">Python</span>
+            <span class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded-full text-sm">Django</span>
+            <span class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-400 rounded-full text-sm">REST API</span>
+          </div>
+          <div class="flex gap-4">
+            <button
+              class="!rounded-button whitespace-nowrap px-4 py-2 bg-primary text-black font-semibold hover:bg-secondary transition-colors">
+              Live Demo
+            </button>
+            <button
+              class="!rounded-button whitespace-nowrap px-4 py-2 glass border border-primary text-primary hover:bg-primary hover:text-black transition-colors">
+              View Code
+            </button>
+          </div>
+        </div>
+        <div class="project-card glass p-8 rounded-xl reveal">
+          <div class="h-48 rounded-lg mb-6 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=university%20management%20system%20dashboard%20with%20student%20records%2C%20course%20management%2C%20academic%20administration%20interface%2C%20professional%20education%20software%20design%2C%20modern%20web%20application&width=600&height=400&seq=project4&orientation=landscape"
+              alt="University Management System" class="w-full h-full object-cover object-top" />
+          </div>
+          <h3 class="orbitron text-2xl font-bold mb-4 text-primary">
+            University Management System
+          </h3>
+          <p class="text-gray-300 mb-6">
+            Comprehensive academic management solution handling student
+            enrollment, course scheduling, faculty management, and
+            administrative operations with role-based access control.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-yellow-500 bg-opacity-20 text-yellow-400 rounded-full text-sm">Python</span>
+            <span class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded-full text-sm">Django</span>
+            <span class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-400 rounded-full text-sm">PostgreSQL</span>
+            <span class="px-3 py-1 bg-purple-500 bg-opacity-20 text-purple-400 rounded-full text-sm">Bootstrap</span>
+          </div>
+        </div>
+        <div class="project-card glass p-8 rounded-xl reveal">
+          <div class="h-48 rounded-lg mb-6 overflow-hidden">
+            <img
+              src="https://readdy.ai/api/search-image?query=student%20management%20system%20interface%20with%20modern%20dashboard%2C%20student%20profiles%2C%20attendance%20tracking%2C%20grade%20management%2C%20clean%20professional%20design%20with%20blue%20accent%20colors&width=600&height=400&seq=project5&orientation=landscape"
+              alt="Student Management System" class="w-full h-full object-cover object-top" />
+          </div>
+          <h3 class="orbitron text-2xl font-bold mb-4 text-primary">
+            Student Management System
+          </h3>
+          <p class="text-gray-300 mb-6">
+            A simple student management system that allows adding, updating, deleting, and searching student records.
+            Useful for practicing CRUD operations and managing student information efficiently.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-400 rounded-full text-sm">C#</span>
+            <span class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded-full text-sm">ASP.NET</span>
+            <span class="px-3 py-1 bg-yellow-500 bg-opacity-20 text-yellow-400 rounded-full text-sm">SQL Server</span>
+            <span class="px-3 py-1 bg-purple-500 bg-opacity-20 text-purple-400 rounded-full text-sm">Bootstrap</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="py-20 relative">
+    <div class="max-w-4xl mx-auto px-6">
+      <!-- Heading -->
+      <div class="text-center mb-16 reveal">
+        <h2 class="orbitron text-5xl font-black mb-6 gradient-text">
+          Contact Me
+        </h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+          Ready to collaborate on your next project? Let's discuss how we can
+          bring your ideas to life.
+        </p>
+      </div>
+
+      <!-- Contact Info Box -->
+      <div class="glass p-8 rounded-xl reveal">
+        <div class="space-y-6">
+
+          <!-- WhatsApp -->
+          <div class="flex items-start space-x-4 flex-wrap sm:flex-nowrap">
+            <a href="https://wa.me/03459174968" target="_blank"
+              class="flex items-start space-x-4 flex-wrap sm:flex-nowrap hover:opacity-80 transition-opacity">
+              <div class="w-12 h-12 flex items-center justify-center glass rounded-full neon-glow shrink-0">
+                <i class="ri-whatsapp-fill text-primary text-xl"></i>
+              </div>
+              <div class="min-w-0">
+                <p class="text-gray-400 text-sm sm:text-base md:text-lg">WhatsApp</p>
+                <p class="text-base sm:text-lg md:text-xl font-semibold break-words">
+                  03459174968
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Email -->
+          <div class="flex items-start space-x-4 flex-wrap sm:flex-nowrap">
+            <div class="w-12 h-12 flex items-center justify-center glass rounded-full neon-glow shrink-0">
+              <i class="ri-mail-line text-primary text-xl"></i>
+            </div>
+            <div class="min-w-0">
+              <p class="text-gray-400 text-sm sm:text-base md:text-lg">Email</p>
+              <p class="text-base sm:text-lg md:text-xl font-semibold break-words">
+                <a href="mailto:muhammadyahya6272@gmail.com" class="hover:underline">
+                  muhammadyahya6272@gmail.com
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="flex items-start space-x-4 flex-wrap sm:flex-nowrap">
+            <div class="w-12 h-12 flex items-center justify-center glass rounded-full neon-glow shrink-0">
+              <i class="ri-map-pin-line text-primary text-xl"></i>
+            </div>
+            <div class="min-w-0">
+              <p class="text-gray-400 text-sm sm:text-base md:text-lg">Location</p>
+              <p class="text-base sm:text-lg md:text-xl font-semibold break-words">
+                Pakistan
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 relative wave">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center">
+        <div class="orbitron text-2xl font-bold gradient-text mb-4">
+          Muhammad Yahya
+        </div>
+        <p class="text-gray-400 mb-6">
+          Full Stack Developer | Creating Digital Excellence
+        </p>
+        <div class="border-t border-gray-700 pt-8">
+          <p class="text-gray-500">
+            © 2025 Muhammad Yahya. All rights reserved.
           </p>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-          <div class="skill-card glass p-6 rounded-xl text-center reveal">
-            <div
-              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center"
-            >
-              <i class="ri-html5-fill text-4xl text-orange-500"></i>
-            </div>
-            <h3 class="font-bold text-lg mb-2">HTML5</h3>
-            <div class="w-full bg-gray-700 rounded-full h-2">
-              <div
-                class="bg-orange-500 h-2 rounded-full"
-                style="width: 95%"
-              ></div>
-            </div>
-          </div>
-          <div class="skill-card glass p-6 rounded-xl text-center reveal">
-            <div
-              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center"
-            >
-              <i class="ri-css3-fill text-4xl text-blue-500"></i>
-            </div>
-            <h3 class="font-bold text-lg mb-2">CSS3</h3>
-            <div class="w-full bg-gray-700 rounded-full h-2">
-              <div
-                class="bg-blue-500 h-2 rounded-full"
-                style="width: 90%"
-              ></div>
-            </div>
-          </div>
-          <div class="skill-card glass p-6 rounded-xl text-center reveal">
-            <div
-              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center"
-            >
-              <i class="ri-javascript-fill text-4xl text-yellow-500"></i>
-            </div>
-            <h3 class="font-bold text-lg mb-2">JavaScript</h3>
-            <div class="w-full bg-gray-700 rounded-full h-2">
-              <div
-                class="bg-yellow-500 h-2 rounded-full"
-                style="width: 85%"
-              ></div>
-            </div>
-          </div>
-          <div class="skill-card glass p-6 rounded-xl text-center reveal">
-            <div
-              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center"
-            >
-              <i class="ri-bootstrap-fill text-4xl text-purple-500"></i>
-            </div>
-            <h3 class="font-bold text-lg mb-2">Bootstrap</h3>
-            <div class="w-full bg-gray-700 rounded-full h-2">
-              <div
-                class="bg-purple-500 h-2 rounded-full"
-                style="width: 80%"
-              ></div>
-            </div>
-          </div>
-          <div class="skill-card glass p-6 rounded-xl text-center reveal">
-            <div
-              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center"
-            >
-              <i class="ri-code-line text-4xl text-blue-400"></i>
-            </div>
-            <h3 class="font-bold text-lg mb-2">jQuery</h3>
-            <div class="w-full bg-gray-700 rounded-full h-2">
-              <div
-                class="bg-blue-400 h-2 rounded-full"
-                style="width: 75%"
-              ></div>
-            </div>
-          </div>
-          <div class="skill-card glass p-6 rounded-xl text-center reveal">
-            <div
-              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center"
-            >
-              <i class="ri-microsoft-fill text-4xl text-blue-600"></i>
-            </div>
-            <h3 class="font-bold text-lg mb-2">C#</h3>
-            <div class="w-full bg-gray-700 rounded-full h-2">
-              <div
-                class="bg-blue-600 h-2 rounded-full"
-                style="width: 88%"
-              ></div>
-            </div>
-          </div>
-          <div class="skill-card glass p-6 rounded-xl text-center reveal">
-            <div
-              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center"
-            >
-              <i class="ri-database-2-line text-4xl text-green-500"></i>
-            </div>
-            <h3 class="font-bold text-lg mb-2">SQL</h3>
-            <div class="w-full bg-gray-700 rounded-full h-2">
-              <div
-                class="bg-green-500 h-2 rounded-full"
-                style="width: 82%"
-              ></div>
-            </div>
-          </div>
-          <div class="skill-card glass p-6 rounded-xl text-center reveal">
-            <div
-              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center"
-            >
-              <i class="ri-window-line text-4xl text-blue-500"></i>
-            </div>
-            <h3 class="font-bold text-lg mb-2">ASP.NET MVC</h3>
-            <div class="w-full bg-gray-700 rounded-full h-2">
-              <div
-                class="bg-blue-500 h-2 rounded-full"
-                style="width: 85%"
-              ></div>
-            </div>
-          </div>
-          <div class="skill-card glass p-6 rounded-xl text-center reveal">
-            <div
-              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center"
-            >
-              <i class="ri-file-code-line text-4xl text-yellow-400"></i>
-            </div>
-            <h3 class="font-bold text-lg mb-2">Python</h3>
-            <div class="w-full bg-gray-700 rounded-full h-2">
-              <div
-                class="bg-yellow-400 h-2 rounded-full"
-                style="width: 80%"
-              ></div>
-            </div>
-          </div>
-          <div class="skill-card glass p-6 rounded-xl text-center reveal">
-            <div
-              class="w-16 h-16 mx-auto mb-4 flex items-center justify-center"
-            >
-              <i class="ri-server-line text-4xl text-green-600"></i>
-            </div>
-            <h3 class="font-bold text-lg mb-2">Django</h3>
-            <div class="w-full bg-gray-700 rounded-full h-2">
-              <div
-                class="bg-green-600 h-2 rounded-full"
-                style="width: 78%"
-              ></div>
-            </div>
-          </div>
-        </div>
       </div>
-    </section>
-    <section id="projects" class="py-20 relative">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16 reveal">
-          <h2 class="orbitron text-5xl font-black mb-6 gradient-text">
-            Featured Projects
-          </h2>
-          <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-            Showcasing innovative solutions and technical expertise through
-            real-world applications
-          </p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="project-card glass p-8 rounded-xl reveal">
-            <div class="h-48 rounded-lg mb-6 overflow-hidden">
-              <img
-                src="https://readdy.ai/api/search-image?query=modern%20student%20result%20portal%20interface%20with%20dashboard%2C%20academic%20grades%20display%2C%20clean%20UI%20design%2C%20educational%20technology%2C%20blue%20and%20white%20color%20scheme%2C%20professional%20web%20application&width=600&height=400&seq=project1&orientation=landscape"
-                alt="Student Result Portal"
-                class="w-full h-full object-cover object-top"
-              />
-            </div>
-            <h3 class="orbitron text-2xl font-bold mb-4 text-primary">
-              Student Result Portal
-            </h3>
-            <p class="text-gray-300 mb-6">
-              A comprehensive web application for managing student academic
-              records and results. Features secure authentication, grade
-              management, and detailed reporting systems.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-3 py-1 bg-yellow-500 bg-opacity-20 text-yellow-400 rounded-full text-sm"
-                >Python</span
-              >
-              <span
-                class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded-full text-sm"
-                >Django</span
-              >
-              <span
-                class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-400 rounded-full text-sm"
-                >Bootstrap</span
-              >
-              <span
-                class="px-3 py-1 bg-purple-500 bg-opacity-20 text-purple-400 rounded-full text-sm"
-                >JavaScript</span
-              >
-            </div>
-          </div>
-          <div class="project-card glass p-8 rounded-xl reveal">
-            <div class="h-48 rounded-lg mb-6 overflow-hidden">
-              <img
-                src="https://readdy.ai/api/search-image?query=SEO%20ranking%20dashboard%20interface%20with%20analytics%20charts%2C%20keyword%20tracking%2C%20search%20engine%20optimization%20tools%2C%20modern%20web%20application%20design%2C%20dark%20theme%20with%20blue%20accents&width=600&height=400&seq=project2&orientation=landscape"
-                alt="SE Ranking Web App"
-                class="w-full h-full object-cover object-top"
-              />
-            </div>
-            <h3 class="orbitron text-2xl font-bold mb-4 text-primary">
-              SE Ranking Web App
-            </h3>
-            <p class="text-gray-300 mb-6">
-              Advanced SEO analytics platform providing comprehensive keyword
-              tracking, competitor analysis, and search engine ranking
-              monitoring with real-time data visualization.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-3 py-1 bg-yellow-500 bg-opacity-20 text-yellow-400 rounded-full text-sm"
-                >Python</span
-              >
-              <span
-                class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded-full text-sm"
-                >Django</span
-              >
-              <span
-                class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-400 rounded-full text-sm"
-                >REST API</span
-              >
-              <span
-                class="px-3 py-1 bg-purple-500 bg-opacity-20 text-purple-400 rounded-full text-sm"
-                >Chart.js</span
-              >
-            </div>
-            <div class="flex gap-4">
-              <button
-                class="!rounded-button whitespace-nowrap px-4 py-2 bg-primary text-black font-semibold hover:bg-secondary transition-colors"
-              >
-                Live Demo
-              </button>
-              <button
-                class="!rounded-button whitespace-nowrap px-4 py-2 glass border border-primary text-primary hover:bg-primary hover:text-black transition-colors"
-              >
-                View Code
-              </button>
-            </div>
-          </div>
-          <div class="project-card glass p-8 rounded-xl reveal">
-            <div class="h-48 rounded-lg mb-6 overflow-hidden">
-              <img
-                src="https://readdy.ai/api/search-image?query=recipe%20app%20interface%20with%20food%20images%2C%20cooking%20instructions%2C%20ingredient%20lists%2C%20modern%20mobile-first%20design%2C%20colorful%20food%20photography%2C%20clean%20UI%20layout&width=600&height=400&seq=project3&orientation=landscape"
-                alt="Mealin Recipe App"
-                class="w-full h-full object-cover object-top"
-              />
-            </div>
-            <h3 class="orbitron text-2xl font-bold mb-4 text-primary">
-              Mealin Recipe App
-            </h3>
-            <p class="text-gray-300 mb-6">
-              Interactive recipe discovery platform with RESTful API
-              integration. Features recipe search, meal planning, ingredient
-              management, and user favorites system.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span
-                class="px-3 py-1 bg-yellow-500 bg-opacity-20 text-yellow-400 rounded-full text-sm"
-                >Python</span
-              >
-              <span
-                class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded-full text-sm"
-                >Django</span
-              >
-              <span
-                class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-400 rounded-full text-sm"
-                >REST API</span
-              >
-            </div>
-            <div class="flex gap-4">
-              <button
-                class="!rounded-button whitespace-nowrap px-4 py-2 bg-primary text-black font-semibold hover:bg-secondary transition-colors"
-              >
-                Live Demo
-              </button>
-              <button
-                class="!rounded-button whitespace-nowrap px-4 py-2 glass border border-primary text-primary hover:bg-primary hover:text-black transition-colors"
-              >
-                View Code
-              </button>
-            </div>
-          </div>
-          <div class="project-card glass p-8 rounded-xl reveal">
-            <div class="h-48 rounded-lg mb-6 overflow-hidden">
-              <img
-                src="https://readdy.ai/api/search-image?query=university%20management%20system%20dashboard%20with%20student%20records%2C%20course%20management%2C%20academic%20administration%20interface%2C%20professional%20education%20software%20design%2C%20modern%20web%20application&width=600&height=400&seq=project4&orientation=landscape"
-                alt="University Management System"
-                class="w-full h-full object-cover object-top"
-              />
-            </div>
-            <h3 class="orbitron text-2xl font-bold mb-4 text-primary">
-              University Management System
-            </h3>
-            <p class="text-gray-300 mb-6">
-              Comprehensive academic management solution handling student
-              enrollment, course scheduling, faculty management, and
-              administrative operations with role-based access control.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-3 py-1 bg-yellow-500 bg-opacity-20 text-yellow-400 rounded-full text-sm"
-                >Python</span
-              >
-              <span
-                class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded-full text-sm"
-                >Django</span
-              >
-              <span
-                class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-400 rounded-full text-sm"
-                >PostgreSQL</span
-              >
-              <span
-                class="px-3 py-1 bg-purple-500 bg-opacity-20 text-purple-400 rounded-full text-sm"
-                >Bootstrap</span
-              >
-            </div>
-          </div>
-          <div class="project-card glass p-8 rounded-xl reveal">
-            <div class="h-48 rounded-lg mb-6 overflow-hidden">
-              <img
-                src="https://readdy.ai/api/search-image?query=student%20management%20system%20interface%20with%20modern%20dashboard%2C%20student%20profiles%2C%20attendance%20tracking%2C%20grade%20management%2C%20clean%20professional%20design%20with%20blue%20accent%20colors&width=600&height=400&seq=project5&orientation=landscape"
-                alt="Student Management System"
-                class="w-full h-full object-cover object-top"
-              />
-            </div>
-            <h3 class="orbitron text-2xl font-bold mb-4 text-primary">
-              Student Management System
-            </h3>
-            <p class="text-gray-300 mb-6">
-              Complete student information management system with features for
-              attendance tracking, grade management, course registration, and
-              performance analytics. Includes role-based access for
-              administrators, teachers, and students.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-400 rounded-full text-sm"
-                >C#</span
-              >
-              <span
-                class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded-full text-sm"
-                >ASP.NET</span
-              >
-              <span
-                class="px-3 py-1 bg-yellow-500 bg-opacity-20 text-yellow-400 rounded-full text-sm"
-                >SQL Server</span
-              >
-              <span
-                class="px-3 py-1 bg-purple-500 bg-opacity-20 text-purple-400 rounded-full text-sm"
-                >Bootstrap</span
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="contact" class="py-20 relative">
-      <div class="max-w-4xl mx-auto px-6">
-        <div class="text-center mb-16 reveal">
-          <h2 class="orbitron text-5xl font-black mb-6 gradient-text">
-            Contact Me
-          </h2>
-          <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-            Ready to collaborate on your next project? Let's discuss how we can
-            bring your ideas to life.
-          </p>
-        </div>
-        <div class="glass p-8 rounded-xl reveal">
-          <div class="space-y-6">
-            <div class="flex items-center space-x-4">
-              <a
-                href="https://wa.me/03459174968"
-                target="_blank"
-                class="flex items-center space-x-4 hover:opacity-80 transition-opacity"
-              >
-                <div
-                  class="w-12 h-12 flex items-center justify-center glass rounded-full neon-glow"
-                >
-                  <i class="ri-whatsapp-fill text-primary text-xl"></i>
-                </div>
-                <div>
-                  <p class="text-gray-400">WhatsApp</p>
-                  <p class="text-xl font-semibold">03459174968</p>
-                </div>
-              </a>
-            </div>
-            <div class="flex items-center space-x-4">
-              <div
-                class="w-12 h-12 flex items-center justify-center glass rounded-full neon-glow"
-              >
-                <i class="ri-mail-line text-primary text-xl"></i>
-              </div>
-              <div>
-                <p class="text-gray-400">Email</p>
-                <p class="text-xl font-semibold">muhammadyahya6272@gmail.com</p>
-              </div>
-            </div>
-            <div class="flex items-center space-x-4">
-              <div
-                class="w-12 h-12 flex items-center justify-center glass rounded-full neon-glow"
-              >
-                <i class="ri-map-pin-line text-primary text-xl"></i>
-              </div>
-              <div>
-                <p class="text-gray-400">Location</p>
-                <p class="text-xl font-semibold">Pakistan</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer class="py-12 relative wave">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center">
-          <div class="orbitron text-2xl font-bold gradient-text mb-4">
-            Muhammad Yahya
-          </div>
-          <p class="text-gray-400 mb-6">
-            Full Stack Developer | Creating Digital Excellence
-          </p>
-          <div class="border-t border-gray-700 pt-8">
-            <p class="text-gray-500">
-              © 2025 Muhammad Yahya. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <button
-      id="backToTop"
-      class="fixed bottom-8 right-8 w-12 h-12 glass rounded-full flex items-center justify-center hover:neon-glow transition-all opacity-0 pointer-events-none z-50"
-    >
-      <i class="ri-arrow-up-line text-primary text-xl"></i>
-    </button>
-    <script id="particles-animation">
-      document.addEventListener("DOMContentLoaded", function () {
-        const particlesContainer = document.querySelector(
-          ".particles-container"
-        );
-        function createParticle() {
-          const particle = document.createElement("div");
-          particle.className = "particle";
-          particle.style.left = Math.random() * 100 + "%";
-          particle.style.width = Math.random() * 6 + 2 + "px";
-          particle.style.height = particle.style.width;
-          particle.style.animationDuration = Math.random() * 3 + 5 + "s";
-          particle.style.animationDelay = Math.random() * 2 + "s";
-          particlesContainer.appendChild(particle);
-          setTimeout(() => {
-            particle.remove();
-          }, 8000);
-        }
-        setInterval(createParticle, 300);
-      });
-    </script>
-    <script id="scroll-animations">
-      document.addEventListener("DOMContentLoaded", function () {
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px",
-        };
-        const observer = new IntersectionObserver(function (entries) {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("active");
-            }
-          });
-        }, observerOptions);
-        document.querySelectorAll(".reveal").forEach((el) => {
-          observer.observe(el);
-        });
-      });
-    </script>
-    <script id="back-to-top">
-      document.addEventListener("DOMContentLoaded", function () {
-        const backToTopBtn = document.getElementById("backToTop");
-        window.addEventListener("scroll", function () {
-          if (window.pageYOffset > 300) {
-            backToTopBtn.style.opacity = "1";
-            backToTopBtn.style.pointerEvents = "auto";
-          } else {
-            backToTopBtn.style.opacity = "0";
-            backToTopBtn.style.pointerEvents = "none";
+    </div>
+  </footer>
+  <button id="backToTop"
+    class="fixed bottom-8 right-8 w-12 h-12 glass rounded-full flex items-center justify-center hover:neon-glow transition-all opacity-0 pointer-events-none z-50">
+    <i class="ri-arrow-up-line text-primary text-xl"></i>
+  </button>
+  <script id="particles-animation">
+    document.addEventListener("DOMContentLoaded", function () {
+      const particlesContainer = document.querySelector(
+        ".particles-container"
+      );
+      function createParticle() {
+        const particle = document.createElement("div");
+        particle.className = "particle";
+        particle.style.left = Math.random() * 100 + "%";
+        particle.style.width = Math.random() * 6 + 2 + "px";
+        particle.style.height = particle.style.width;
+        particle.style.animationDuration = Math.random() * 3 + 5 + "s";
+        particle.style.animationDelay = Math.random() * 2 + "s";
+        particlesContainer.appendChild(particle);
+        setTimeout(() => {
+          particle.remove();
+        }, 8000);
+      }
+      setInterval(createParticle, 300);
+    });
+  </script>
+  <script id="scroll-animations">
+    document.addEventListener("DOMContentLoaded", function () {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
           }
         });
-        backToTopBtn.addEventListener("click", function () {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
+      }, observerOptions);
+      document.querySelectorAll(".reveal").forEach((el) => {
+        observer.observe(el);
+      });
+    });
+  </script>
+  <script id="back-to-top">
+    document.addEventListener("DOMContentLoaded", function () {
+      const backToTopBtn = document.getElementById("backToTop");
+      window.addEventListener("scroll", function () {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.style.opacity = "1";
+          backToTopBtn.style.pointerEvents = "auto";
+        } else {
+          backToTopBtn.style.opacity = "0";
+          backToTopBtn.style.pointerEvents = "none";
+        }
+      });
+      backToTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
         });
       });
-    </script>
-    <script id="smooth-scroll">
-      document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute("href"));
-            if (target) {
-              target.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }
-          });
+    });
+  </script>
+  <script id="smooth-scroll">
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
         });
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>
